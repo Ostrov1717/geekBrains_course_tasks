@@ -26,5 +26,8 @@ public class FruitStore {
         System.out.println("After transfer:");
         System.out.println("Apple box weight: " + appleBox.getWeight());
         System.out.println("Another apple box weight: " + anotherAppleBox.getWeight());
+
+        orangeBox.transferFruitsTo(orangeBox);
+        System.out.println("Orange box weight after transferring to itself: " + orangeBox.getWeight());
     }
 }

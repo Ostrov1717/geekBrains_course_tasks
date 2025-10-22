@@ -30,6 +30,9 @@ public class Box<T extends Fruit> {
     }
 
     public void transferFruitsTo(Box<T> anotherBox) {
+        if(this == anotherBox) {
+            return;
+        }
         anotherBox.getFruits().addAll(this.fruits);
         this.fruits.clear();
     }
