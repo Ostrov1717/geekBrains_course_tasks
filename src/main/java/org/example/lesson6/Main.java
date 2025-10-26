@@ -3,15 +3,14 @@ package org.example.lesson6;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-    private static int SIZE = 10_000_000;
-    private  static int HALF = SIZE / 2;
+    private final static int SIZE = 10_000_000;
+    private final static int HALF = SIZE / 2;
 
     public static void main(String[] args) throws InterruptedException {
         method1();
@@ -25,7 +24,7 @@ public class Main {
         float[] arr = new float[SIZE];
         Arrays.fill(arr, 1.0f);
         long start = System.currentTimeMillis();
-        incrementArray(arr,0);
+        incrementArray(arr, 0);
         long end = System.currentTimeMillis();
         System.out.println("Method1 time: " + (end - start) + " ms");
     }
@@ -39,9 +38,9 @@ public class Main {
         System.arraycopy(arr, 0, a1, 0, HALF);
         System.arraycopy(arr, HALF, a2, 0, HALF);
 
-        Thread t1 = new Thread(() -> incrementArray(a1,0));
+        Thread t1 = new Thread(() -> incrementArray(a1, 0));
 
-        Thread t2 = new Thread(() -> incrementArray(a2,HALF));
+        Thread t2 = new Thread(() -> incrementArray(a2, HALF));
 
         t1.start();
         t2.start();
