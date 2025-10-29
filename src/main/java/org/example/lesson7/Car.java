@@ -3,10 +3,11 @@ package org.example.lesson7;
 import lombok.Getter;
 
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Car implements Runnable {
     private static int CARS_COUNT;
-    private static int winner = 0;
+    private static final AtomicInteger winnerCount = new AtomicInteger(0);
 
     static {
         CARS_COUNT = 0;
@@ -41,11 +42,8 @@ public class Car implements Runnable {
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
             if (i == race.getStages().size() - 1) {
-                synchronized (Car.class) {
-                    if (winner == 0) {
-                        System.out.println(this.name + " - ПОБЕДИТЕЛЬ!!!");
-                        winner++;
-                    }
+                if (winnerCount.compareAndSet(0, 1)) {
+                    System.out.println(this.name + " - ПОБЕДИТЕЛЬ!!!");
                 }
             }
 
