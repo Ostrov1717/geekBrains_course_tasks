@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- 1. Подключение к базе данных -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/demo_db</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">1</property>
+        <property name="connection.pool_size">1</property>
+
+        <!-- 3. Авто-генерация схемы -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!-- 4. Логи SQL в консоль -->
+        <property name="show_sql">false</property>
+        <property name="format_sql">true</property>
+        
+        <property name="current_session_context_class">thread</property>
+
+
+    </session-factory>
+</hibernate-configuration>
