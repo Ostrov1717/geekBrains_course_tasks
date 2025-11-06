@@ -1,11 +1,9 @@
 package org.example.lesson11.connections.one_to_one;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     private Long id;

@@ -1,13 +1,11 @@
 package org.example.lesson11.connections.many_to_many_adv;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "purchases")
 public class Purchase {
     @Id
     private Long id;
@@ -20,7 +18,8 @@ public class Purchase {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    // дополнительные поля
     private double priceAtPurchase;
 
-    private LocalDateTime purchaseDateTime = LocalDateTime.now(); // дополнительные поля
+    private LocalDateTime purchaseDateTime = LocalDateTime.now();
 }
