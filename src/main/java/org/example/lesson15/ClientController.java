@@ -22,6 +22,7 @@ public class ClientController {
                                       @RequestParam(defaultValue = "asc") String direction) {
         return clientService.search(filter,page, size, sortBy, direction);
     }
+
     @GetMapping("/new-search")
     public Page<Client> newSearchClients(ClientFilter filter,
                                       @RequestParam(defaultValue = "0") int page,
