@@ -7,6 +7,16 @@
     <groupId>org.example</groupId>
     <artifactId>VTB</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>config_client_1</module>
+        <module>config_client_2</module>
+        <module>config_server</module>
+        <module>disc_service_eureka_server</module>
+        <module>disc_service_product_service</module>
+        <module>disc_service_order_service</module>
+        <module>disc_service_gateway</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
